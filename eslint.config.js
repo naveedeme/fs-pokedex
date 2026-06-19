@@ -1,7 +1,7 @@
-const js = require("@eslint/js");
-const react = require("eslint-plugin-react");
-const jest = require("eslint-plugin-jest");
-const globals = require("globals");
+const js = require("@eslint/js")
+const react = require("eslint-plugin-react")
+const jest = require("eslint-plugin-jest")
+const globals = require("globals")
 
 module.exports = [
 	{
@@ -28,7 +28,10 @@ module.exports = [
 			semi: ["error", "never"],
 			eqeqeq: "error",
 			"no-trailing-spaces": "error",
-			"object-curly-spacing": ["error", "always"],
+			"object-curly-spacing": [
+				"error",
+				"always"
+			],
 			"arrow-spacing": [
 				"error",
 				{ before: true, after: true }
@@ -55,7 +58,9 @@ module.exports = [
 				...globals.jest
 			}
 		},
-		settings: { react: { version: "detect" } },
+		settings: {
+			react: { version: "detect" }
+		},
 		rules: {
 			...react.configs.recommended.rules,
 			indent: ["error", 2],
@@ -64,7 +69,10 @@ module.exports = [
 			semi: ["error", "never"],
 			eqeqeq: "error",
 			"no-trailing-spaces": "error",
-			"object-curly-spacing": ["error", "always"],
+			"object-curly-spacing": [
+				"error",
+				"always"
+			],
 			"arrow-spacing": [
 				"error",
 				{ before: true, after: true }
@@ -73,4 +81,4 @@ module.exports = [
 			"react/prop-types": 0
 		}
 	}
-];
+]
