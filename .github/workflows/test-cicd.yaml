@@ -11,5 +11,9 @@ jobs:
         run: echo "Hello, World!"
       - name: Goodbye World Step
         run: echo "Goodbye, World!"
+      - name: Print Date Step
+        run: date
+      - name: List Files Step
+        run: ls -la
       - name: Final Step
         run: echo "This is the final step of the CI/CD pipeline."
