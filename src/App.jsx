@@ -1,14 +1,14 @@
-import React from "react"
+import React from 'react'
 import {
 	Routes,
 	Route,
 	useMatch
-} from "react-router-dom"
-import { useApi } from "./useApi"
-import LoadingSpinner from "./LoadingSpinner"
-import ErrorMessage from "./ErrorMessage"
-import PokemonPage from "./PokemonPage"
-import PokemonList from "./PokemonList"
+} from 'react-router-dom'
+import { useApi } from './useApi'
+import LoadingSpinner from './LoadingSpinner'
+import ErrorMessage from './ErrorMessage'
+import PokemonPage from './PokemonPage'
+import PokemonList from './PokemonList'
 
 const mapResults = ({ results }) =>
 	results.map(({ url, name }) => ({
@@ -18,13 +18,13 @@ const mapResults = ({ results }) =>
 	}))
 
 const App = () => {
-	const match = useMatch("/pokemon/:name")
+	const match = useMatch('/pokemon/:name')
 	const {
 		data: pokemonList,
 		error,
 		isLoading
 	} = useApi(
-		"https://pokeapi.co/api/v2/pokemon/?limit=50",
+		'https://pokeapi.co/api/v2/pokemon/?limit=50',
 		mapResults
 	)
 
@@ -40,8 +40,7 @@ const App = () => {
 
 	if (match && match.params) {
 		const pokemonId = pokemonList.find(
-			({ name }) =>
-				name === match.params.name
+			({ name }) => name === match.params.name
 		).id
 		previous = pokemonList.find(
 			({ id }) => id === pokemonId - 1

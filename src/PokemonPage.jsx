@@ -1,12 +1,12 @@
-import React from "react"
-import { Link, useParams } from "react-router-dom"
-import LoadingSpinner from "./LoadingSpinner"
-import { useApi } from "./useApi"
-import PokemonAbility from "./PokemonAbility"
-import ErrorMessage from "./ErrorMessage"
+import React from 'react'
+import { Link, useParams } from 'react-router-dom'
+import LoadingSpinner from './LoadingSpinner'
+import { useApi } from './useApi'
+import PokemonAbility from './PokemonAbility'
+import ErrorMessage from './ErrorMessage'
 
 const formatName = (nameWithDash) =>
-	nameWithDash.replace("-", " ")
+	nameWithDash.replace('-', ' ')
 
 const PokemonPage = ({ previous, next }) => {
 	const { name } = useParams()
@@ -46,15 +46,13 @@ const PokemonPage = ({ previous, next }) => {
 		<>
 			<div className="links">
 				{previous && (
-					<Link
-						to={`/pokemon/${previous.name}`}>
+					<Link to={`/pokemon/${previous.name}`}>
 						Previous
 					</Link>
 				)}
 				<Link to="/">Home</Link>
 				{next && (
-					<Link
-						to={`/pokemon/${previous.name}`}>
+					<Link to={`/pokemon/${previous.name}`}>
 						Next
 					</Link>
 				)}
@@ -76,28 +74,16 @@ const PokemonPage = ({ previous, next }) => {
 						data-testid="stats">
 						<table>
 							<tbody>
-								{stats.map(
-									({
-										name,
-										value
-									}) => (
-										<tr
-											key={
-												name
-											}>
-											<td className="pokemon-stats-name">
-												{
-													name
-												}
-											</td>
-											<td className="pokemon-stats-value">
-												{
-													value
-												}
-											</td>
-										</tr>
-									)
-								)}
+								{stats.map(({ name, value }) => (
+									<tr key={name}>
+										<td className="pokemon-stats-name">
+											{name}
+										</td>
+										<td className="pokemon-stats-value">
+											{value}
+										</td>
+									</tr>
+								))}
 							</tbody>
 						</table>
 					</div>
@@ -105,18 +91,14 @@ const PokemonPage = ({ previous, next }) => {
 						{normalAbility && (
 							<PokemonAbility
 								abilityName={formatName(
-									normalAbility
-										.ability
-										.name
+									normalAbility.ability.name
 								)}
 							/>
 						)}
 						{hiddenAbility && (
 							<PokemonAbility
 								abilityName={formatName(
-									hiddenAbility
-										.ability
-										.name
+									hiddenAbility.ability.name
 								)}
 							/>
 						)}
